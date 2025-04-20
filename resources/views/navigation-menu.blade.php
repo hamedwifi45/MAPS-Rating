@@ -25,12 +25,13 @@
             @endguest
 
             @auth
-            <div class="flex" width='70%'>
-                <x-nav-link href="{{ route('place.create') }}" :active="request()->routeIs('place.create')">
-                    {{ __('Create Place') }}
-                </x-nav-link>
-            </div>
-            
+            @owner
+                <div class="flex" width='70%'>
+                    <x-nav-link href="{{ route('place.create') }}" :active="request()->routeIs('place.create')">
+                        {{ __('Create Place') }}
+                    </x-nav-link>
+                </div>
+            @endowner
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <!-- Teams Dropdown -->
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())

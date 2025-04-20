@@ -12,6 +12,10 @@ class PlaceController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+     public function __construct(Place $place){
+        $this->middleware('role' , ['only' => ['create' , 'store']]);
+     }
     public function index()
     {
         $places = Place::orderBy('view_count' , 'desc')->take(6)->get();

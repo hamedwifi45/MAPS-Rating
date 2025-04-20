@@ -88,4 +88,10 @@ class User extends Authenticatable
     {
         return $this->bookmarks()->wherePlace_id($place)->exists();
     }
+    public function role(){
+        return $this->belongsTo(Role::class);
+    }
+    public function hasrole($role){
+        return $this->role()->whereName($role)->first() ? true : false;
+    }
 }
